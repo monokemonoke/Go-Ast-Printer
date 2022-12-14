@@ -5,5 +5,14 @@
 ## How To Use
 
 ```
-go run main.go <プリントしたいgoファイル>
+go run . <プリントしたいgoファイル>
+```
+
+または以下の方法でも実行できます.
+
+```
+git clone git@github.com:monokemonoke/Go-Ast-Printer.git
+cd Go-Ast-Printer
+go install astPrinter.go
+astPrinter <プリントしたいgoファイル>
 ```
