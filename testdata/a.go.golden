@@ -1,0 +1,95 @@
+     0  *ast.GenDecl {
+     1  .  TokPos: ./testdata/a.go:3:1
+     2  .  Tok: import
+     3  .  Lparen: -
+     4  .  Specs: []ast.Spec (len = 1) {
+     5  .  .  0: *ast.ImportSpec {
+     6  .  .  .  Path: *ast.BasicLit {
+     7  .  .  .  .  ValuePos: ./testdata/a.go:3:8
+     8  .  .  .  .  Kind: STRING
+     9  .  .  .  .  Value: "\"fmt\""
+    10  .  .  .  }
+    11  .  .  .  EndPos: -
+    12  .  .  }
+    13  .  }
+    14  .  Rparen: -
+    15  }
+     0  *ast.FuncDecl {
+     1  .  Name: *ast.Ident {
+     2  .  .  NamePos: ./testdata/a.go:5:6
+     3  .  .  Name: "main"
+     4  .  .  Obj: *ast.Object {
+     5  .  .  .  Kind: func
+     6  .  .  .  Name: "main"
+     7  .  .  .  Decl: *(obj @ 0)
+     8  .  .  }
+     9  .  }
+    10  .  Type: *ast.FuncType {
+    11  .  .  Func: ./testdata/a.go:5:1
+    12  .  .  Params: *ast.FieldList {
+    13  .  .  .  Opening: ./testdata/a.go:5:10
+    14  .  .  .  Closing: ./testdata/a.go:5:11
+    15  .  .  }
+    16  .  }
+    17  .  Body: *ast.BlockStmt {
+    18  .  .  Lbrace: ./testdata/a.go:5:13
+    19  .  .  List: []ast.Stmt (len = 2) {
+    20  .  .  .  0: *ast.AssignStmt {
+    21  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+    22  .  .  .  .  .  0: *ast.Ident {
+    23  .  .  .  .  .  .  NamePos: ./testdata/a.go:6:2
+    24  .  .  .  .  .  .  Name: "a"
+    25  .  .  .  .  .  .  Obj: *ast.Object {
+    26  .  .  .  .  .  .  .  Kind: var
+    27  .  .  .  .  .  .  .  Name: "a"
+    28  .  .  .  .  .  .  .  Decl: *(obj @ 20)
+    29  .  .  .  .  .  .  }
+    30  .  .  .  .  .  }
+    31  .  .  .  .  }
+    32  .  .  .  .  TokPos: ./testdata/a.go:6:4
+    33  .  .  .  .  Tok: :=
+    34  .  .  .  .  Rhs: []ast.Expr (len = 1) {
+    35  .  .  .  .  .  0: *ast.BinaryExpr {
+    36  .  .  .  .  .  .  X: *ast.BasicLit {
+    37  .  .  .  .  .  .  .  ValuePos: ./testdata/a.go:6:7
+    38  .  .  .  .  .  .  .  Kind: INT
+    39  .  .  .  .  .  .  .  Value: "1"
+    40  .  .  .  .  .  .  }
+    41  .  .  .  .  .  .  OpPos: ./testdata/a.go:6:9
+    42  .  .  .  .  .  .  Op: +
+    43  .  .  .  .  .  .  Y: *ast.BasicLit {
+    44  .  .  .  .  .  .  .  ValuePos: ./testdata/a.go:6:11
+    45  .  .  .  .  .  .  .  Kind: INT
+    46  .  .  .  .  .  .  .  Value: "2"
+    47  .  .  .  .  .  .  }
+    48  .  .  .  .  .  }
+    49  .  .  .  .  }
+    50  .  .  .  }
+    51  .  .  .  1: *ast.ExprStmt {
+    52  .  .  .  .  X: *ast.CallExpr {
+    53  .  .  .  .  .  Fun: *ast.SelectorExpr {
+    54  .  .  .  .  .  .  X: *ast.Ident {
+    55  .  .  .  .  .  .  .  NamePos: ./testdata/a.go:7:2
+    56  .  .  .  .  .  .  .  Name: "fmt"
+    57  .  .  .  .  .  .  }
+    58  .  .  .  .  .  .  Sel: *ast.Ident {
+    59  .  .  .  .  .  .  .  NamePos: ./testdata/a.go:7:6
+    60  .  .  .  .  .  .  .  Name: "Println"
+    61  .  .  .  .  .  .  }
+    62  .  .  .  .  .  }
+    63  .  .  .  .  .  Lparen: ./testdata/a.go:7:13
+    64  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+    65  .  .  .  .  .  .  0: *ast.Ident {
+    66  .  .  .  .  .  .  .  NamePos: ./testdata/a.go:7:14
+    67  .  .  .  .  .  .  .  Name: "a"
+    68  .  .  .  .  .  .  .  Obj: *(obj @ 25)
+    69  .  .  .  .  .  .  }
+    70  .  .  .  .  .  }
+    71  .  .  .  .  .  Ellipsis: -
+    72  .  .  .  .  .  Rparen: ./testdata/a.go:7:15
+    73  .  .  .  .  }
+    74  .  .  .  }
+    75  .  .  }
+    76  .  .  Rbrace: ./testdata/a.go:8:1
+    77  .  }
+    78  }
