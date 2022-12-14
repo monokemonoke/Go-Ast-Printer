@@ -5,10 +5,11 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"io"
 	"os"
 )
 
-func Parser(filename string) error {
+func Parser(filename string, w io.Writer) error {
 	fset := token.NewFileSet()
 	f, err := parser.ParseFile(fset, filename, nil, parser.Mode(0))
 	if err != nil {
@@ -16,7 +17,7 @@ func Parser(filename string) error {
 	}
 
 	for _, d := range f.Decls {
-		ast.Print(fset, d)
+		ast.Fprint(w, fset, d, ast.NotNilFilter)
 		fmt.Println()
 	}
 	return nil
@@ -27,7 +28,7 @@ func main() {
 		return
 	}
 
-	err := Parser(os.Args[1])
+	err := Parser(os.Args[1], os.Stdout)
 	if err != nil {
 		fmt.Println(err)
 	}
