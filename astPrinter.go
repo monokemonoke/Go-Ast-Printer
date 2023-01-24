@@ -7,6 +7,7 @@ import (
 	"go/token"
 	"io"
 	"os"
+	"strings"
 )
 
 func Parser(filename string, w io.Writer) error {
@@ -24,12 +25,23 @@ func Parser(filename string, w io.Writer) error {
 }
 
 func main() {
-	if len(os.Args) != 2 {
-		return
+	var filenames []string
+	if len(os.Args) > 1 {
+		filenames = []string{os.Args[1]}
+	} else {
+		b, err := io.ReadAll(os.Stdin)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "err: %s\n", err.Error())
+			return
+		}
+		filenames = strings.Split(string(b), "\n")
+		filenames = filenames[:len(filenames)-1]
 	}
 
-	err := Parser(os.Args[1], os.Stdout)
-	if err != nil {
-		fmt.Println(err)
+	for _, filename := range filenames {
+		err := Parser(filename, os.Stdout)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
